@@ -1,9 +1,9 @@
-const Discord = require("discord.js");
-const { prefix, token } = require("./config.json");
-const ytdl = require("ytdl-core");
-const { joinVoiceChannel } = require("@discordjs/voice");
+import { Client } from "discord.js";
+import { prefix, token } from "./config.json";
+import { getInfo } from "ytdl-core";
+import { joinVoiceChannel } from "@discordjs/voice";
 
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"]});
+const client = new Client({ intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES"]});
 
 const queue = new Map();
 
@@ -57,7 +57,7 @@ async function execute(message, serverQueue) {
     );
   }
 
-  const songInfo = await ytdl.getInfo(args[1]);
+  const songInfo = await getInfo(args[1]);
   const song = {
         title: songInfo.videoDetails.title,
         url: songInfo.videoDetails.video_url,

@@ -16,13 +16,13 @@ for (const file of events) {
 
 console.log(`Loading commands...`);
 
-readdirSync('./commands/').forEach(dirs => {
-    const commands = readdirSync(`./commands/${dirs}`).filter(files => files.endsWith('.js'));
+readdirSync('./bot-control/').forEach(dirs => {
+    const commands = readdirSync(`./bot-control/${dirs}`).filter(files => files.endsWith('.js'));
 
     for (const file of commands) {
-        const command = require(`../commands/${dirs}/${file}`);
+        const command = require(`../bot-control/${dirs}/${file}`);
         console.log(`-> Loaded command ${command.name.toLowerCase()}`);
         client.commands.set(command.name.toLowerCase(), command);
-        delete require.cache[require.resolve(`../commands/${dirs}/${file}`)];
+        delete require.cache[require.resolve(`../bot-control/${dirs}/${file}`)];
     };
 });
