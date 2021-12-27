@@ -1,7 +1,7 @@
 module.exports = {
     app: {
         px: 'ac!',
-        token: 'OTI1MDU5ODQ4MzY4OTUxMzI2.YcnnHg.NApFQs9WB026u6euwQSn4-DUpxQ',
+        token: 'OTI1MDU5ODQ4MzY4OTUxMzI2.YcnnHg.IPb9X4B5H5K2_CQ67DGVSNur5d4',
         playing: 'joe mama real?'
     },
 
